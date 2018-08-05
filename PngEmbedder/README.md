@@ -1,7 +1,7 @@
 # pngEmbedder
-pngEmbedder is the command-line tool I use to embed a paletted RGBA image into a C/C++ file.
+pngEmbedder is the command-line tool I use to embed a **paletted RGBA image** into a C/C++ file.
 
-# HOW To COMPILE
+# HOW TO COMPILE
 pngEmbedder.c is a single C89 file that can be easily compiled this way:
 
 ```gcc -Os --std=gnu89 -no-pie pngEmbedder.c -o pngEmbedder -lm```
@@ -13,7 +13,7 @@ Input image: Tile8x8.png (512x512 pixels)
 
 ![image1](https://github.com/Flix01/Flix-Tools/blob/master/PngEmbedder/Tile8x8.png)
 
-To reduce the number of colors we use **pngnq** (on Ubuntu: ```apt-get install pngnq```) this way:
+To reduce the number of colors we use **pngnq** (on Ubuntu: ```sudo apt-get install pngnq```) this way:
 
 ```pngnq -n 75 Tile8x8.png```
 
