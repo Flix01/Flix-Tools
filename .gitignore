@@ -30,3 +30,17 @@
 *.exe
 *.out
 *.app
+
+# Other Files
+*.pro
+*.user
+*.stash
+reps/
+Makefile
+
+# PngEmbedder
+PngEmbedder/pngEmbedder
+PngEmbedder/Test/test
+
+
+
