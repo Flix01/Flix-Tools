@@ -41,7 +41,7 @@ Makefile
 # PngEmbedder
 PngEmbedder/pngEmbedder
 PngEmbedder/Test/test
-PngEmbedder/Test/test/Tile8x8-nq8.png.inl
+PngEmbedder/Test/test/image_out.png
 
 
 
