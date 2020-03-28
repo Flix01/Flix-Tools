@@ -17,7 +17,7 @@
 /* #define USE_BIG_ENDIAN_MACHINE // define this on big endian machines */
 
 void DecodeImage(unsigned* pPixelsOut,unsigned* palette,const unsigned numPalette,const char* indices) {
-    unsigned hasReps=0,*pRaw = pPixelsOut;(void)(numPalette);
+    unsigned hasReps=0,*pRaw = pPixelsOut;
     const char* pc;char lastChar=(char)255,c,j;
 #   ifdef USE_BIG_ENDIAN_MACHINE /* define this on big endian machines */
     unsigned tmp;const unsigned char* pTmp = (const unsigned char*) &tmp;
@@ -37,6 +37,7 @@ void DecodeImage(unsigned* pPixelsOut,unsigned* palette,const unsigned numPalett
         }
         *pRaw++ = palette[(unsigned char)c];lastChar = c;
     }
+	(void)(numPalette);
 }
 
 /* Longer version with a longer signature and asserts (dbg only) */
@@ -79,7 +80,7 @@ void DecodeImageDebug(unsigned* pRGBAOut,int w,int h,unsigned* palette,const uns
 }
 
 void DecodeImageInt(unsigned* pPixelsOut,unsigned* palette,const unsigned numPalette,const int* indices,const unsigned numIndices) {
-    unsigned pal,i,*pRaw = pPixelsOut;(void)(numPalette);
+    unsigned pal,i,*pRaw = pPixelsOut;
     int lastIdx=-1,idx=-1,j,numReps=0;
 #   ifdef USE_BIG_ENDIAN_MACHINE /* define this on big endian machines */
     unsigned tmp;const unsigned char* pTmp = (const unsigned char*) &tmp;
@@ -97,6 +98,7 @@ void DecodeImageInt(unsigned* pPixelsOut,unsigned* palette,const unsigned numPal
         }
         else {*pRaw++ = palette[idx];lastIdx = idx;}
     }
+	(void)(numPalette);
 }
 
 int main (int argc,char* argv[])
@@ -105,7 +107,6 @@ int main (int argc,char* argv[])
     /* I suggest to embed the .inl file directly whenever possible. Anyway: */
 #   include "../Tile8x8-nq8.png.inl"
 
-
     /*  Now the .inl file can be in 2 flavours:
         1) Compact: indices are stored as chars (if the number of colors in the image is less than about 76 AFAIR)
         2) Larger: indices are stored as integers (not recommended)
@@ -113,7 +114,8 @@ int main (int argc,char* argv[])
     */
     unsigned int raw[width*height];
     DecodeImage(&raw[0],palette,sizeof(palette)/sizeof(palette[0]),*indices);
-    /*DecodeImageInt(&raw[0],palette,sizeof(palette)/sizeof(palette[0]),indices,sizeof(indices)/sizeof(indices[0]));*/
+    /*DecodeImageInt(&raw[0],palette,sizeof(palette)/sizeof(palette[0]),indices,sizeof(indices)/sizeof(indices[0]));*/  
+
     stbi_write_png("image_out.png",width,height,4,(const void*)raw,width*4);
 
 return 0;

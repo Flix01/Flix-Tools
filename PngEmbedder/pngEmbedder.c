@@ -22,7 +22,7 @@
 //#define NO_USAGE_IN_INL_FILES
 
 static const char* decodeImageUsage[] = {"void DecodeImage(unsigned* pPixelsOut,unsigned* palette,const unsigned numPalette,const char* indices) {\n"
-                                         "    unsigned hasReps=0,*pRaw = pPixelsOut;(void)(numPalette);\n"
+                                         "    unsigned hasReps=0,*pRaw = pPixelsOut;\n"
                                          "    const char* pc;char lastChar=(char)255,c,j;\n"
                                          "#   ifdef USE_BIG_ENDIAN_MACHINE /* define this on big endian machines */\n"
                                          "    unsigned tmp;const unsigned char* pTmp = (const unsigned char*) &tmp;\n"
@@ -41,14 +41,14 @@ static const char* decodeImageUsage[] = {"void DecodeImage(unsigned* pPixelsOut,
                                          "            hasReps=0;continue;\n"
                                          "        }\n"
                                          "        *pRaw++ = palette[(unsigned char)c];lastChar = c;\n"
-                                         "    }\n"
+                                         "    }\n	(void)(numPalette);\n"
                                          "}\n\n"
                                          "// unsigned int raw[width*height];\n"
                                          "// DecodeImage(&raw[0],palette,sizeof(palette)/sizeof(palette[0]),*indices);\n"
 };
 
 static const char* decodeImageIntUsage[] = {"void DecodeImageInt(unsigned* pPixelsOut,unsigned* palette,const unsigned numPalette,const int* indices,const unsigned numIndices) {\n"
-                                         "    unsigned pal,i,*pRaw = pPixelsOut;(void)(numPalette);\n"
+                                         "    unsigned pal,i,*pRaw = pPixelsOut;\n"
                                          "    int lastIdx=-1,idx=-1,j,numReps=0;\n"
                                          "#   ifdef USE_BIG_ENDIAN_MACHINE /* define this on big endian machines */\n"
                                          "    unsigned tmp;const unsigned char* pTmp = (const unsigned char*) &tmp;\n"
@@ -65,7 +65,7 @@ static const char* decodeImageIntUsage[] = {"void DecodeImageInt(unsigned* pPixe
                                          "            for (j=0;j<numReps;j++) *pRaw++ = pal;\n"
                                          "        }\n"
                                          "        else {*pRaw++ = palette[idx];lastIdx = idx;}\n"
-                                         "    }\n"
+                                         "    }\n	(void)(numPalette);\n"
                                          "}\n\n"
                                          "// unsigned int raw[width*height];\n"
                                          "// DecodeImageInt(&raw[0],palette,sizeof(palette)/sizeof(palette[0]),indices,sizeof(indices)/sizeof(indices[0]));\n"
