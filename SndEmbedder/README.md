@@ -16,13 +16,13 @@ sndEmbedder is the command-line tool I use to embed **short mono audio sounds (m
 
 It can capture sound from any supported capture device (e.g. microphone or any PC output, if an audio monitor capture device has been correctly configured).
 
-At the end of the process it should create an **.inl** file (like [bells.inl](./Tests/sounds/bells.inl)) that can be included into user code.
+At the end of the process it should create an **.inl** file (like [bells.inl](./Test/sounds/bells.inl)) that can be included into user code.
 
 # HOW TO USE .INL FILES
 In the **Test** subfolder there are two demos:
 
-* [**test_openal.c**](./Tests/test_openal.c) (depends on openal)
-* [**test_sokol.c**](./Tests/test_sokol.c) (depends on -lasound on Linux)
+* [**test_openal.c**](./Test/test_openal.c) (depends on openal)
+* [**test_sokol.c**](./Test/test_sokol.c) (depends on -lasound on Linux)
 
 Compilation instructions for Linux, Windows and Emscripten are at the top of each .c file.
 
