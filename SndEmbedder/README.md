@@ -1,7 +1,6 @@
 # sndEmbedder
 sndEmbedder is the command-line tool I use to embed **short mono audio sounds (max about 5 seconds)** into a C/C++ file.
 
-
 # HOW TO COMPILE
 **sndEmbedder.c** is a single C89 file that can be easily compiled this way:
 
