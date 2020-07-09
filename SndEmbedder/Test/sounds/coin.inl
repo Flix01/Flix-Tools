@@ -1,0 +1,6 @@
+	// num_samples = 6022, saved with samplerate = 22050 and num_channels = 1 (length in ms: 273)
+	"j1HO2x####lj###C.$##7I###TM;2'//###A4sa8oN8c7)MhH6@X`V7x?WQ8>$###@####@####1)###bB#######################)gXM&UOfx(#O%E-i]/$5);m0vju@l08?cU,*,;8*CINp'cu6o%;IT2%Q[cF%boFY%9K+6%Wom-d+=X.SLApkcfCp[C:RP%ie-+N>EZ(5nU:pY9*POa^?&cT9DD%Sc1@Z1DOAlahQxZWSX*1eh-1b1DrnIXC^i@MNIHl>CI)wiX4Ie2>?;i#iW2G=$9V;9/A9cX$5_4S9c#D:%)`6bH)f$%5ESjA^[&]WlW2SoEFPYV-@'m31Z05/("
+	"@nV`+FM?`a(4CeJIfS([T[gs:3$BrUmXH1+Al9fP]78/*khcLp)JQt8(-.1f)K^a=l'qPZJf/oBgwv%UV-'eGKTg?`^[8eQghA$`370na%WG;ObM9$g=dfZ:[74Pko(0$:$*F;aYHUbHRYFmZb*g<^nEGc;rI;*>Z+qOEY`</>-0hXTq8q_B)+tFoXQKTlG?U_]&&;:P>_,MWc+b<;f6](HRIvU:g$bK=qL&Y_5)*EB>n1=TkHEMFUkanDEb9aP8@xw/4w4v#<iLv#1%wo%YV3.)3JJ?5xISW5O.Lj('mIH),b.&,hK?H3le:m3s+b]+WV3.)4C39%A_[[#=8dK=(tmC>4='2="
+	"&vUlM?Te3=+MP>h#D,+8dqPd3EZlA#w+TBR&jXFq8pKqO2fHZ,Gd`S0C;Q(FOR<7e+fT*F+qEEJ1h:,FT#Jd?GMlY@Z_7a$>-pQ&=xUv#;$gQ&9i1Z#HKgQ&FE1g(OC]60i[(O#spr4#0,c6#5Wx5#/Kf5#%qr4#Joq7#q$X9#9t#;#LZ)<#o(5>#o,hB#1abI#v(?V#p@G'$+iUP0rbL)&(lW5$<:FM&Z02o$Hi>N#>wO6#PM<1#r;L/#wnl+#PJa)#Qi8*#>jd(#GJa)#A]&*#hsI-#cC7@#Jpm(#U?$(#'9q'#5ahR#,'U'#UP:v#83h'#D>N)#A`s)#luJ*#*[%-#WtI-#"
+	"B9v3#<hg:#0qF:$n^O5$<I8=#FWw8#c0f-#I^V4#)CV,#C[%-#xMh/#njC?#ewcm`"
+

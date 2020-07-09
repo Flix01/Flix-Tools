@@ -1,0 +1,16 @@
+License of all the .inl files is CC0.
+
+Please see: https://creativecommons.org/publicdomain/zero/1.0/
+
+All the sounds have been found on https://freesound.org, except "bells.inl", recorded from a bell tower.
+
+-----------
+DISCLAIMER:
+-----------
+
+The files found on https://freesound.org have been licensed under CC0 (public domain) by their authors.
+To report any abuse please contact https://freesound.org.
+
+And be careful if you use any of them in a commercial product!
+
+
