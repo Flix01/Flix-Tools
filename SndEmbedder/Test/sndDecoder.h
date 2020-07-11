@@ -110,6 +110,7 @@ SNDD_API_DEC size_t sndd_SaveAsWavFile(const char* savePath,const float* samples
 
 
 static size_t sndd_Base85Decode(const char* input, char** poutput, size_t* poutputSizeInOut)    {
+    // Based on code contained in imgui_draw.cpp (Dear ImGui at https://github.com/ocornut/imgui, MIT licensed)
 #   define SNDD_DECODE85BYTE(c)   (((c) >= '\\') ? ((c)-36) : ((c)-35))
     const size_t outputSize = (((size_t)strlen(input) + 4) / 5) * 4;
     const unsigned char *src = (const unsigned char *) input;
