@@ -12,7 +12,7 @@ cl /TC /O2 /MT test_sokol.c /link /out:test_sokol.exe Shell32.lib user32.lib ker
 emcc -O3 test_sokol.c -o html/test_sokol.html -s ALLOW_MEMORY_GROWTH=1 -s ASYNCIFY=1 -s ASYNCIFY_IGNORE_INDIRECT=1
 
 // NOTES ABOUT COMMANDLINE OPTIONS:
-// -no-pie -fno-pie just make sure than the compiled source considered an .exe (and not a .dll)
+// -no-pie -fno-pie just make sure that the compiled source is considered an executable (and not a shared object)
 // -fopenmp-simd -DNDEBUG can be used to increase performace (-fopenmp-simd does NOT need openmp!).
 // -DNDEBUG should remove all the asserts, so it's probably better to avoid it when performance is not a priority.
 // -s ASYNCIFY=1 is mandatory for emscripten_sleep(...), since plain usleep(...) does not seem to work correctly. It's recommended to use -O3 (instead of -O2) to riduce file size when using it.
@@ -46,7 +46,7 @@ emcc -O3 test_sokol.c -o html/test_sokol.html -s ALLOW_MEMORY_GROWTH=1 -s ASYNCI
 #   define sleep_ms(X)     usleep((X)*1000)
 #endif
 
-// audio format (note that sounds in .h files use 1 channel with samplerate 22050 Hz, but we can request them in a bunch of different formats)
+// audio format (note that sounds in .inl files use 1 channel with samplerate 22050 Hz, but we can request them in a bunch of different formats)
 // ONLY FLOAT32 SAMPLES ARE SUPPORTED (although user can easily convert them to short samples if necessary)!
 // 'sokol_audio.h' needs 'samplerate' and 'num_channels' in 'saudio_setup(...)': so they're
 // global for every playback source. 'sndDecoder.h' can make some very basic conversions:
