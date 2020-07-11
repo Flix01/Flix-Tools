@@ -12,7 +12,7 @@ cl /TC /O2 /ML /DSNDD_NO_C99_MATH_FUNCTIONS test_openal.c /link /out:test_openal
 emcc -O3 test_openal.c -o html/test_openal.html -s ALLOW_MEMORY_GROWTH=1 -s ASYNCIFY=1 -s ASYNCIFY_IGNORE_INDIRECT=1
 
 // NOTES ABOUT COMMANDLINE OPTIONS:
-// -no-pie -fno-pie just make sure than the compiled source considered an .exe (and not a .dll)
+// -no-pie -fno-pie just make sure that the compiled source is considered an executable file (and not a shared object)
 // -fopenmp-simd -DNDEBUG can be used to increase performace (-fopenmp-simd does NOT need openmp!).
 // -DNDEBUG should remove all the asserts, so it's probably better to avoid it when performance is not a priority.
 // -s ASYNCIFY=1 is mandatory for emscripten_sleep(...), since plain usleep(...) does not seem to work correctly. It's recommended to use -O3 (instead of -O2) to riduce file size when using it.
@@ -47,7 +47,7 @@ emcc -O3 test_openal.c -o html/test_openal.html -s ALLOW_MEMORY_GROWTH=1 -s ASYN
 #   define sleep_ms(X)     usleep((X)*1000)
 #endif
 
-// audio format (note that sounds in .h files use 1 channel with samplerate 22050 Hz, but we can request them in a bunch of different formats)
+// audio format (note that sounds in .inl files use 1 channel with samplerate 22050 Hz, but we can request them in a bunch of different formats)
 // ONLY FLOAT32 SAMPLES ARE SUPPORTED (although user can easily convert them to short samples if necessary)!
 // Unlike in sokol_audio, in openal leaving the params used when recording audio
 // has no further constraints on playback (they are assigned to a single audio source)
