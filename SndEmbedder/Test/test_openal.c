@@ -3,7 +3,7 @@
 // COMPILATION INSTRUCTIONS:
 /*
 // with gcc (for clang just replace gcc with clang and see if it works):
-gcc  -O3 -no-pie -fno-pie test_openal.c -o test_openal -lasound -lpthread
+gcc -O3 -no-pie -fno-pie test_openal.c -o test_openal -lopenal -lm
 // with mingw (here for Windows 64bit):
 x86_64-w64-mingw32-gcc -O3 -no-pie -fno-pie -mconsole test_openal.c -o test_openal.exe -DWINVER=0x0800 -D_WIN32 -D_WIN64 -luser32 -lkernel32 -lOpenAL32
 // with cl (here for Windows 32bit, VC 7.1 2003: hence /DSNDD_NO_C99_MATH_FUNCTIONS)
