@@ -1239,6 +1239,7 @@ size_t snd_DeserializeDiscreteFourierTransform(snoat dft_out[][2], size_t dft_ou
 
 
 size_t snd_Base85Decode(const char* input, char** poutput, size_t* poutputSizeInOut)    {
+    // Based on code contained in imgui_draw.cpp (Dear ImGui at https://github.com/ocornut/imgui, MIT licensed)
 #   define SND_DECODE85BYTE(c)   (((c) >= '\\') ? ((c)-36) : ((c)-35))        
     const size_t outputSize = (((size_t)strlen(input) + 4) / 5) * 4;
     const unsigned char *src = (const unsigned char *) input;
