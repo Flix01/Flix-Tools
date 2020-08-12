@@ -361,10 +361,18 @@ SNDD_API_DEF size_t sndd_DecodeSerializedSound(float** psamples,size_t* sampleSi
 #       error Please define SNDD_MAX_SIZE implicitly by defining SNDD_MAX_LOG2SIZE: SNDD_MAX_SIZE is (1<<SNDD_MAX_LOG2SIZE)
 #   endif
 #   define SNDD_MAX_SIZE (1<<SNDD_MAX_LOG2SIZE)
-    float dft_output[SNDD_MAX_SIZE][2];  // static ?
     size_t check_size = 0;
     unsigned required_size = 0,num_samples = 0;
 
+//#   define SNDD_DECODE_SERIALIZED_SOUND_DOESNT_USE_BIG_STACK_ALLOCATION    // I've learned how to allocate something to match the (float) (*)[2] signature today! (plain float** does NOT work).
+#   ifndef SNDD_DECODE_SERIALIZED_SOUND_DOESNT_USE_BIG_STACK_ALLOCATION
+    float dft_output[SNDD_MAX_SIZE][2];  // on the stack ? Well, this should be: 2*128*4 KB = 1MB
+#   else
+    typedef float two_floats_t[2];  // I didn't know this...
+    two_floats_t* dft_output = (two_floats_t*) SNDD_MALLOC(SNDD_MAX_SIZE*sizeof(two_floats_t));
+    SNDD_ASSERT(sizeof(two_floats_t)==2*sizeof(float));
+#   endif    
+    
     SNDD_ASSERT(input && psamples && sampleSizeInOut);
     SNDD_ASSERT(samplerate>0 && (num_channels==1 || num_channels==2));
     SNDD_ASSERT(output && size);
@@ -397,6 +405,11 @@ SNDD_API_DEF size_t sndd_DecodeSerializedSound(float** psamples,size_t* sampleSi
     SNDD_ASSERT(required_size>=H->num_samples);
     num_samples = H->num_samples;
     for (i=0;i<num_samples;i++)    {(*psamples)[i] = dft_output[i][0];}
+    
+#   ifdef SNDD_DECODE_SERIALIZED_SOUND_DOESNT_USE_BIG_STACK_ALLOCATION
+    SNDD_FREE(dft_output);dft_output=NULL;
+#   endif    
+    
     if (samplerate!=H->samplerate)  {
         float* samples = *psamples;
         while (samplerate>=H->samplerate*2)   {
